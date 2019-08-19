@@ -13,6 +13,8 @@ class Drinks {
                 numeroDrinks
             } = req.body
 
+            if (!nome || !email || !nomeDrink || !ingredientes || !modoPreparo || !tempoEstimado || !numeroDrinks)
+                return res.status(400).send({ error: 'há dados em branco' })
             const drink = await Drink.create(req.body)
             return res.status(200).json(drink)
 

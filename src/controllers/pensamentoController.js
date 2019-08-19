@@ -5,6 +5,8 @@ class enviarPensamento {
     async postar(req, res) {
 
         const { name, texto, email } = req.body
+        if (!name || !texto || !email)
+            return res.status(400).send({ error: 'há dados em branco' })
 
         const pensamentoCriado = await pensamento.create(req.body)
 
@@ -22,13 +24,11 @@ class enviarPensamento {
             pensamento.findOne().skip(randomPensamento).exec(
 
                 function(err, result) {
-
                     return res.json(result)
                 }
             )
         })
     }
-
 
     async selectAll(req, res) {
 
