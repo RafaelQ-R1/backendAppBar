@@ -2,8 +2,8 @@ const express = require('express'),
     mongoose = require('mongoose'),
     cors = require('cors'),
     bodyParser = require('body-parser'),
-    helmet = require('helmet')
-morgan = require('morgan')
+    helmet = require('helmet'),
+    morgan = require('morgan')
 
 
 app = express()
