@@ -6,6 +6,8 @@ const express = require('express'),
     morgan = require('morgan')
 
 
+require('dotenv/config')
+const db = process.env.DATABASE
 app = express()
 app.use(helmet())
 app.use(morgan('combined'))
@@ -13,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors())
 
 
-mongoose.connect('mongodb+srv://dragonus:dragonus@cluster0-picr7.mongodb.net/boteco?retryWrites=true', {
+mongoose.connect(`${db}`, {
     useNewUrlParser: true,
 })
 
